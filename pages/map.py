@@ -5,29 +5,25 @@ import requests
 import json
 import pydeck as pdk
 
-# FIPS付きのIowaのcounty populationデータ（仮）
-# 例: df_pop = pd.read_csv("iowa_county_population.csv")
-df_pop = pd.read_csv("data/pop_geo_county.csv")  # fips列はゼロパディングされた文字列で！
+st.title("Iowa Population by County")
 
-# GeoJSONロード
-geojson_url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
-response = requests.get(geojson_url)
-counties_geojson = response.json()
+df_pop = pd.read_csv("data/pop_geo_county.csv") 
 
-# タイトル表示
-st.title("🗺️ Iowa Population by County")
+url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
+response = requests.get(url)
+shapes = response.json()
 
-# Choroplethマップ作成
+# mapping
 fig = px.choropleth(
     df_pop,
-    geojson=counties_geojson,
-    locations="fips",            # 各countyのFIPSコード
-    color="pop_county",          # 色付けの基準
+    geojson=shapes,
+    locations="fips",
+    color="pop_county",
     color_continuous_scale="Viridis",
     range_color=(df_pop["pop_county"].min(), df_pop["pop_county"].max()),
     scope="usa",
-    labels={"population": "Population"},
-    hover_name="county",         # hoverで表示するCounty名（オプション）
+    labels={"pop_county": "Population"},
+    hover_name="county", 
 )
 
 # Iowa中心にズーム（PlotlyのChoroplethはzoom設定不可 → Iowaに限定したデータが必要）
@@ -35,13 +31,24 @@ fig.update_geos(fitbounds="locations", visible=False)
 
 # レイアウト調整
 fig.update_layout(
-    title_text="Iowa County Population Map",
-    margin={"r": 0, "t": 50, "l": 0, "b": 0},
-    height=600
+    # title_text="Iowa Population by County",
+    margin={"r": 0, "t": 0, "l": 0, "b": 0},
+    height=400,
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)',
 )
 
-# 表示
+fig.update_traces(
+    colorbar=dict(
+        len=1,
+        y=0.5, 
+        thickness=10
+    )
+)
+
 st.plotly_chart(fig, use_container_width=True)
+
+st.title("Item-Level Gross Profit by Store")
 
 # store data
 df = pd.read_csv('data/iowa.csv')

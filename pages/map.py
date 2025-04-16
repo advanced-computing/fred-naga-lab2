@@ -27,15 +27,21 @@ fig = px.choropleth(
 )
 
 # Iowa中心にズーム（PlotlyのChoroplethはzoom設定不可 → Iowaに限定したデータが必要）
-fig.update_geos(fitbounds="locations", visible=False)
+fig.update_geos(
+    fitbounds="locations",
+    visible=False,
+    bgcolor="#2e2e2e",
+    landcolor="#000000",
+    lakecolor="#2e2e2e"
+)
 
 # レイアウト調整
 fig.update_layout(
     # title_text="Iowa Population by County",
     margin={"r": 0, "t": 0, "l": 0, "b": 0},
     height=400,
-    paper_bgcolor='rgba(0,0,0,0)',
-    plot_bgcolor='rgba(0,0,0,0)',
+    paper_bgcolor='#2e2e2e',
+    plot_bgcolor='#2e2e2e' 
 )
 
 fig.update_traces(
@@ -87,7 +93,7 @@ st.pydeck_chart(
                 data=df_store,
                 get_position='[longitude, latitude]',
                 get_elevation="gross_profit",
-                elevation_scale=0.3,
+                elevation_scale=0.1,
                 radius=1000,
                 get_fill_color="[255, 140, 0, 200]",
                 pickable=True,

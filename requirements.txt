@@ -1,9 +1,11 @@
+streamlit
 pandas
-jupyter==1.*
+pandas-gbq
 plotly
+pydeck
+google-auth
+google-cloud-bigquery==3.14.1
 sodapy
+jupyter==1.*
 pytest
 pytest-cov
-streamlit
-pandas-gbq
-google-cloud-bigquery==3.14.1

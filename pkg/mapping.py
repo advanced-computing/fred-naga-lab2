@@ -74,8 +74,7 @@ def gross_profit_map(df):
                 ),
             ],
             tooltip={
-                "html": "<b>Store:</b> {store}<br/>"
-                        "<b>County:</b> {county}<br/>"
+                "html": "<b>County:</b> {county}<br/>"
                         "<b>City:</b> {city}<br/>"
                         "<b>Gross Profit:</b> ${gross_profit}<br/>",
                 "style": {

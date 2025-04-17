@@ -30,6 +30,7 @@ def connect_to_spring(table):
             longitude,
             city,
             county,
+            pop_city,
             gross_profit,
     FROM `{table}`
     WHERE month=3 OR month=4 OR month=5

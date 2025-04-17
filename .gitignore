@@ -174,7 +174,7 @@ cython_debug/
 .pypirc
 
 # secret info
-secret/
+.streamlit/
 
 # data
 data/

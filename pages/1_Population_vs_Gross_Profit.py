@@ -1,11 +1,11 @@
 import streamlit as st
 import plotly.express as px
 from pkg.mapping import population_map, gross_profit_map
-from pkg.load_data import connect_to_population_data, connect_to_spring, connect_to_summer, connect_to_fall, connect_to_winter
+from pkg.load_data import connect_to_population, connect_to_spring, connect_to_summer, connect_to_fall, connect_to_winter
 
 # population data
 table='solid-dominion-452916-p4.aml_fl_tn.iowa_population'
-df_pop = connect_to_population_data(table)
+df_pop = connect_to_population(table)
 
 # gross profit data
 table2='solid-dominion-452916-p4.aml_fl_tn.iowa_season'

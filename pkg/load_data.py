@@ -3,7 +3,7 @@ from google.oauth2 import service_account #added
 import pandas_gbq # added
 
 @st.cache_resource
-def connect_to_population_data(table):
+def connect_to_population(table):
 
     # create API client
     creds = st.secrets["gcp_service_account"]

@@ -1,8 +1,5 @@
 import streamlit as st
 import plotly.express as px
-import plotly.graph_objects as go
-import statsmodels.api as sm
-import numpy as np
 from pkg.mapping import population_map, gross_profit_map
 from pkg.load_data import connect_to_population_data, connect_to_spring, connect_to_summer, connect_to_fall, connect_to_winter
 

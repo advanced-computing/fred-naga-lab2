@@ -3,16 +3,48 @@ from google.oauth2 import service_account #added
 import pandas_gbq # added
 
 @st.cache_resource
-def connect_to_population(table):
+def connect_to_county(table):
 
     # create API client
     creds = st.secrets["gcp_service_account"]
     credentials = service_account.Credentials.from_service_account_info(creds)
 
     sql = f"""
-    SELECT fips, 
+    SELECT *
+    FROM `{table}`
+    """
+    
+    return pandas_gbq.read_gbq(sql, credentials=credentials)
+
+@st.cache_resource
+def connect_to_city(table):
+
+    # create API client
+    creds = st.secrets["gcp_service_account"]
+    credentials = service_account.Credentials.from_service_account_info(creds)
+
+    sql = f"""
+    SELECT *
+    FROM `{table}`
+    """
+
+    return pandas_gbq.read_gbq(sql, credentials=credentials)
+
+@st.cache_resource
+def connect_to_iowa(table):
+
+    # create API client
+    creds = st.secrets["gcp_service_account"]
+    credentials = service_account.Credentials.from_service_account_info(creds)
+
+    sql = f"""
+    SELECT store,
+            month,
+            city,
             county,
+            pop_city,
             pop_county,
+            gross_profit,
     FROM `{table}`
     """
 

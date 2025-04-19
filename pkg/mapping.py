@@ -84,3 +84,48 @@ def gross_profit_map(df):
             }
         ), height=200
     )
+
+
+@st.cache_resource
+def income_map(df, url):
+    response = requests.get(url)
+    shapes = response.json()
+
+    fig = px.choropleth(
+        df,
+        geojson=shapes,
+        locations="fips",
+        color="annual_income",
+        color_continuous_scale="Viridis",
+        range_color=(df["annual_income"].min(), df["annual_income"].max()),
+        scope="usa",
+        labels={"annual_income": "Annual Income"},
+        hover_name="county", 
+    )
+
+    fig.update_geos(
+        fitbounds="locations",
+        visible=False,
+        bgcolor="#2e2e2e",
+        landcolor="#000000",
+        lakecolor="#2e2e2e"
+    )
+
+    fig.update_layout(
+        # title_text="Average Income by County",
+        margin={"r": 0, "t": 0, "l": 0, "b": 0},
+        height=400,
+        paper_bgcolor='#2e2e2e',
+        plot_bgcolor='#2e2e2e' 
+    )
+
+    fig.update_traces(
+        colorbar=dict(
+            len=1,
+            y=0.5, 
+            thickness=10
+        )
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+        

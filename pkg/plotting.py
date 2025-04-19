@@ -29,3 +29,15 @@ def city_population_plot(df, x, y, color=None, trendline=None,
     )
     fig.update_layout(showlegend=False, height=500)
     st.plotly_chart(fig, use_container_width=True)
+    
+def income_histogram_plot(df, bins=30):
+
+    fig = px.histogram(
+        df,
+        x="annual_income",
+        nbins=bins,
+        title="Income Distribution Across Counties",
+        labels={"annual_income": "Annual Income", "count": "Number of Counties"}
+    )
+    fig.update_layout(height=400)
+    st.plotly_chart(fig, use_container_width=True)    

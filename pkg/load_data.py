@@ -39,7 +39,6 @@ def connect_to_iowa(table):
 
     sql = f"""
     SELECT store,
-            month,
             city,
             county,
             pop_city,

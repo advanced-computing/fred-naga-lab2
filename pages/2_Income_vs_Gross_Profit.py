@@ -9,7 +9,7 @@ table='solid-dominion-452916-p4.aml_fl_tn.county'
 df_county = connect_to_county(table)
 
 # iowa data
-table='solid-dominion-452916-p4.aml_fl_tn.iowa'
+table='solid-dominion-452916-p4.aml_fl_tn.iowa_without_month'
 df_iowa = connect_to_iowa(table)
 
 df_grouped = (

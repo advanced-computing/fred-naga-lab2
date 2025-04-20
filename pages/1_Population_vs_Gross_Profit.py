@@ -11,18 +11,15 @@ df_county = connect_to_county(table)
 table='solid-dominion-452916-p4.aml_fl_tn.city'
 df_city = connect_to_city(table)
 
-# gross profit data
-table='solid-dominion-452916-p4.aml_fl_tn.iowa'
-df = connect_to_iowa(table)
-df = (
-    df.
-    groupby(['store', 'city', 'county', 'pop_city', 'pop_county'])['gross_profit']
-    .sum().reset_index()
-)
+# gross profit data by season
+table='solid-dominion-452916-p4.aml_fl_tn.iowa_with_month'
 df_spring = connect_to_spring(table)
 df_summer = connect_to_summer(table)
 df_fall = connect_to_fall(table)
 df_winter = connect_to_winter(table)
+
+table='solid-dominion-452916-p4.aml_fl_tn.iowa_without_month'
+df = connect_to_iowa(table)
 
 tab1, tab2, tab3, tab4 = st.tabs(["Map", "County", "City", "Gender & Age by County"])
 

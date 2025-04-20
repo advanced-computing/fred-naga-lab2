@@ -6,6 +6,7 @@ from pkg.load_data import connect_to_iowa, connect_to_county, connect_to_city, c
 # county data
 table='solid-dominion-452916-p4.aml_fl_tn.county'
 df_county = connect_to_county(table)
+df_county = df_county.groupby('county').first().reset_index()
 
 # city data
 table='solid-dominion-452916-p4.aml_fl_tn.city'

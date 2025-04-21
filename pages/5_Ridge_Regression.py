@@ -5,9 +5,9 @@ import json
 st.title('Ridge Regression')
 
 st.header('🍻 Training - 70% of Data',divider=True)
-st.markdown('**Beta Hat for 4,529 features**')
+st.markdown('**Beta Hat of 4,529 features**')
 
-with open('beta_hat_1_labeled.json', 'r') as f:
+with open('json/beta_hat_1_labeled.json', 'r') as f:
     beta_hat = json.load(f)
 
 st.json(beta_hat)

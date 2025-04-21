@@ -177,7 +177,7 @@ with tab4:
                     color=None,
                     trendline="ols",
                     title="",
-                    x_title="Male 18 to 24 years old population",
+                    x_title="Male 25 to 34 years old population",
                     y_title="Aggregate item-level gross profit by county")
         
         county_population_plot(df_county, 

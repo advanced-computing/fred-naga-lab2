@@ -44,7 +44,7 @@ def connect_to_iowa(table):
             pop_city,
             pop_county,
             gross_profit,
-            annual_income 
+            annual_income,
     FROM `{table}`
     """
 

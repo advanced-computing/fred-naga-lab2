@@ -29,6 +29,7 @@ url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties
 population_map(df_county, url)
 
 st.title("Gas Sales by County")
+url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
 gas_sales_map(df_county, url)
 
 # This function is generic

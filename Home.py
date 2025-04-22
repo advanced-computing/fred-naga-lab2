@@ -5,8 +5,16 @@ st.set_page_config(page_title="Predictive Analytics for Item-Level Gross Profits
                    page_icon="🏠")
 st.sidebar.header("Fred & Naga")
 
-st.title('🍺   🍷   🥂   🥃   🍶   🍸   🍹   🍾   🧉   🍻')
-st.title('Predictive Analytics for Item-Level Gross Profits in Iowa Liquor Stores')
+# st.title('🥂 Predictive Analytics for Item-Level Gross Profits in Iowa Liquor Stores 🍾')
+
+st.markdown(
+    """
+    <h1 style='text-align: center;'>Predictive Analytics</h1>
+    <h1 style='text-align: center;'>🥂 for Item-Level Gross Profits 🍾</h1>
+    <h1 style='text-align: center;'>in Iowa Liquor Stores</h1>
+    """,
+    unsafe_allow_html=True
+)
 
 st.header('🍺 Problem',divider=True)
 st.markdown('''

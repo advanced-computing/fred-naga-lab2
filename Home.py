@@ -73,7 +73,7 @@ st.markdown('''
 
 st.header('🍹 Next Steps',divider=True)
 st.markdown('''
-            - Compare this model with another model such as linear regression.
-            - Improve the model performance by increasing the number of features. 
-            - Create and use income brackets rather than relying on average county income.
+            - Compare the current model with alternative approaches, such as linear regression.
+            - Enhance model performance by incorporating additional features or increasing tree depth. 
+            - Use income brackets to better capture income distribution, rather than relying on average county income.
             ''')

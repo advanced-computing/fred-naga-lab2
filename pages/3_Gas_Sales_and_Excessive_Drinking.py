@@ -1,5 +1,5 @@
 import streamlit as st
-from pkg.mapping import gas_sales_map, population_map, drinking_map
+from pkg.mapping import gas_sales_map, drinking_map
 from pkg.plotting import county_population_plot
 from pkg.load_data import connect_to_iowa, connect_to_county
 
@@ -8,6 +8,8 @@ from pkg.load_data import connect_to_iowa, connect_to_county
 table='solid-dominion-452916-p4.aml_fl_tn.county'
 df_county = connect_to_county(table)
 df_county = df_county.groupby('county').first().reset_index()
+
+df_ungrouped = connect_to_county(table)
 
 # iowa data
 table='solid-dominion-452916-p4.aml_fl_tn.iowa_without_month'
@@ -24,9 +26,7 @@ df_grouped = (
 
 df_grouped["excessive_drinking"] = df_grouped["excessive_drinking"] / 100
 
-st.title("Iowa Population by County")
 url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
-population_map(df_county, url)
 
 st.title("Gas Sales by County")
 gas_sales_map(df_county, url)

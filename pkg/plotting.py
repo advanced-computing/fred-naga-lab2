@@ -41,3 +41,18 @@ def income_histogram_plot(df, bins=30):
     )
     fig.update_layout(height=400)
     st.plotly_chart(fig, use_container_width=True)    
+    
+
+@st.cache_data
+def plot_price_range_histogram(df):
+
+    fig = px.histogram(
+        df,
+        x="price_range",
+        color="price_range",
+        category_orders={"price_range": ["cheap", "medium", "expensive"]},
+        labels={"price_range": "Price Category", "count": "Number of Items"},
+        title="Liquor Inventory by Price Range"
+    )
+    fig.update_layout(showlegend=False)
+    st.plotly_chart(fig, use_container_width=True)

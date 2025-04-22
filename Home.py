@@ -38,29 +38,28 @@ st.markdown('''
 st.header('🍷 Data',divider=True)
 st.markdown('''
             **Outcome**
-            - [Item-Level Gross Profit in 2024](https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data)
+            - [Monthly Item-Level Gross Profit by Liquor Store](https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data)
             
             **Features**
+            - **Month:** Assumes season is one of the important factors influencing consumers' liquor preference.
             - [Adult Population Age Brackets by Gender](https://catalog.data.gov/dataset/iowa-population-18-years-and-over-by-sex-age-and-educational-attainment-acs-5-year-estimat?): This variable includes adult age categorized into the following buckets: (18–24, 25–34, 35–44, 45–64, and 65+) at the county level, separating male and female populations.
-            - [Annual Income by County in 2022](https://data.iowa.gov/Economic-Statistics/Annual-Personal-Income-for-State-of-Iowa-by-County/st2k-2ti2/about_data): Denotes the county level average income.
-            - [Fuel Sales by County in 2024](https://data.iowa.gov/Sales-Distribution/Iowa-Motor-Fuel-Sales-by-County-and-Year/hbwp-wys3/about_data) (Used as an interaction term when store type is gas station): Total motor fuel sold during the 2024 calendar year, measured in gallons.
-            - [Excessive Drinking Percentage by County in 2022](https://www.countyhealthrankings.org/health-data/community-conditions/health-infrastructure/health-promotion-and-harm-reduction/excessive-drinking?state=19&tab=1&year=2025): Percentage of adults reporting binge or heavy drinking in the past 30 days. 
-            - [Store Types](https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data): Categories of class "E" liquor selling stores such as: grocery store, liquor store/bar, gas station, pharmacy, distillery/brewery, general store, convenience store, other, or unknown.
-            - [Liquor Types](https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data): Categories of liquor types such as whiskey liqueur, canadian whisky, aged rum, ect.
+            - [Annual Income by County](https://data.iowa.gov/Economic-Statistics/Annual-Personal-Income-for-State-of-Iowa-by-County/st2k-2ti2/about_data): Denotes the county level average income.
+            - [Fuel Sales by County](https://data.iowa.gov/Sales-Distribution/Iowa-Motor-Fuel-Sales-by-County-and-Year/hbwp-wys3/about_data) (Used as an interaction term when store type is gas station): Total motor fuel sold during the 2024 calendar year, measured in gallons.
+            - [Excessive Drinking Percentage by County](https://www.countyhealthrankings.org/health-data/community-conditions/health-infrastructure/health-promotion-and-harm-reduction/excessive-drinking?state=19&tab=1&year=2025): Percentage of adults reporting binge or heavy drinking in the past 30 days. 
+            - **Store Types:** Categories of class "E" liquor selling stores such as: grocery store, liquor store/bar, gas station, pharmacy, distillery/brewery, general store, convenience store, other, or unknown.
+            - **Liquors** More detailed liquor items than general liquor types, such as whiskey liqueur, Canadian whisky, aged rum, etc.
             
             **Data Sourcing** 
-            - **Iowa Liquor Sales:** Contains transaciton level records of stores licensed to sell liquor to be consumed off-premise. It includes product details, store name/location, quantities sold, and sale prices.
+            - **Iowa Liquor Sales in 2024:** Contains transaciton level records of stores licensed to sell liquor to be consumed off-premise. It includes product details, store name/location, quantities sold, and sale prices.
             - **U.S. Census Bureau American Community Survey (ACS 5-Year Estimates)**: This program aggregates demographic, social, economic, and housing data at a county level. It pools rolling 5-year periods to provide a larger sample size that is more reliable for small population areas.
             - **County Health Rankings**: Jointly run by the University of Wisconsin Population Health Institute and Robert Wood Johnson Foundation, this initiative produces annual rankings of U.S. counties based on health outcomes.    
             ''')
 
 st.header('🍶 Strategy',divider=True)
 st.markdown('''
-            - Create hypothetical regression model
-            - Revise model considering scope, data availability, and desired output
-            - Perform Exploratory Data Analysis (EDA) to verify feature selection
-            - Project item-level gross profits based on the stores' features.
-            - Train the data with Ridge Regression, recentering it and regularizing coefficients with λ = 
+            - Create random forests using training, validation, and testing data.
+            - Perform Exploratory Data Analysis (EDA) to verify feature selection.
+            - Project monthly item-level gross profits based on the stores' features.
             ''')
 
 st.header('🍸 Limitations',divider=True)
@@ -74,8 +73,7 @@ st.markdown('''
 
 st.header('🍹 Next Steps',divider=True)
 st.markdown('''
-            **???**
-            - ...
-            - ...
-            - ...
+            - Compare this model with another model such as linear regression.
+            - Improve the model performance by increasing the number of features. 
+            - Create and use income brackets rather than relying on average county income.
             ''')

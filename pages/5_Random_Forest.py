@@ -38,10 +38,10 @@ fig = px.scatter(
     x='store',
     y='gross_profit',
     color='comparison',
-    title='Actual vs Projected Gross Profit',
+    title='Actual vs Projected Monthly Gross Profit',
     labels={
-        'store': 'Store',
-        'gross_profit': 'Gross Profit',
+        'store': 'Stores in testing',
+        'gross_profit': 'Monthly Gross Profit',
         'comparison': 'Comparison'
     },
     color_discrete_map={
@@ -51,8 +51,8 @@ fig = px.scatter(
     opacity=0.6
 )
 fig.update_layout(
-    xaxis_title='Store',
-    yaxis_title='Gross Profit',
+    xaxis_title='Stores in testing',
+    yaxis_title='Monthly Gross Profit',
     legend_title_text=None,
     legend=dict(
         orientation='v',    

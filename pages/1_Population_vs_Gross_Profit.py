@@ -32,7 +32,7 @@ with tab1:
     url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
     population_map(df_county, url)
 
-    st.title("Item-Level Gross Profit by Store")
+    st.title("Monthly Item-Level Gross Profit by Store")
 
     col1, col2 = st.columns(2)
 
@@ -58,7 +58,7 @@ with tab2:
                            trendline="ols",
                            title="",
                            x_title="County population",
-                           y_title="Aggregate item-level gross profit by county")
+                           y_title="Aggregate yearly item-level gross profit by county")
 
     st.title("Gross Profit by Store vs County Population")
 
@@ -69,7 +69,7 @@ with tab2:
                            trendline=None,
                            title="",
                            x_title="County population",
-                           y_title="Item-level gross profit by store")
+                           y_title="Yearly item-level gross profit by store")
 
     county_population_plot(df, 
                            x="pop_county", 
@@ -78,7 +78,7 @@ with tab2:
                            trendline="ols",
                            title="",
                            x_title="County population",
-                           y_title="Item-level gross profit by store")
+                           y_title="Yearly item-level gross profit by store")
 
 with tab3:
     st.title("Aggregate Gross Profit vs City Population")
@@ -90,7 +90,7 @@ with tab3:
                          trendline="ols",
                          title="",
                          x_title="City population",
-                         y_title="Aggregate item-level gross profit by city")
+                         y_title="Aggregate yearly item-level gross profit by city")
 
     city_population_plot(df, 
                          x="pop_city", 
@@ -99,7 +99,7 @@ with tab3:
                          trendline=None,
                          title="",
                          x_title="City population",
-                         y_title="Item-level gross profit by store")
+                         y_title="Yearly item-level gross profit by store")
     
     city_population_plot(df, 
                          x="pop_city", 
@@ -108,7 +108,7 @@ with tab3:
                          trendline="ols",
                          title="",
                          x_title="City population",
-                         y_title="Item-level gross profit by store")
+                         y_title="Yearly item-level gross profit by store")
     
 with tab4:
     st.title("Aggregate Gross Profit vs Geder & Age Population")
@@ -123,7 +123,7 @@ with tab4:
                            trendline="ols",
                            title="",
                            x_title="Female 18 to 24 years old population",
-                           y_title="Aggregate item-level gross profit by county")
+                           y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="female_25_34", 
@@ -132,7 +132,7 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Female 25 to 34 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="female_35_44", 
@@ -141,7 +141,7 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Female 35 to 44 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="female_45_64", 
@@ -150,7 +150,7 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Female 45 to 64 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="female_65_over", 
@@ -159,7 +159,7 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Female over 65 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")
         
     with col2: 
         county_population_plot(df_county, 
@@ -169,7 +169,7 @@ with tab4:
                            trendline="ols",
                            title="",
                            x_title="Male 18 to 24 years old population",
-                           y_title="Aggregate item-level gross profit by county")
+                           y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="male_25_34", 
@@ -178,7 +178,7 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Male 25 to 34 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="male_35_44", 
@@ -187,7 +187,7 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Male 35 to 44 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="male_45_64", 
@@ -196,7 +196,7 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Male 45 to 64 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")
         
         county_population_plot(df_county, 
                     x="male_65_over", 
@@ -205,4 +205,4 @@ with tab4:
                     trendline="ols",
                     title="",
                     x_title="Male over 65 years old population",
-                    y_title="Aggregate item-level gross profit by county")
+                    y_title="Aggregate yearly item-level gross profit by county")

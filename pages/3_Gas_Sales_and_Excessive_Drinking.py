@@ -28,44 +28,50 @@ df_grouped["excessive_drinking"] = df_grouped["excessive_drinking"] / 100
 
 url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
 
-st.title("Gas Sales by County")
-url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
-gas_sales_map(df_county, url)
+tab1, tab2 = st.tabs(["Gas Sales", "Excessive Drinking"])
 
-# This function is generic
-st.subheader("Gas Sales vs. Gross Profit by County")
-county_population_plot(
-    df_county,
-    x="gas_sales",
-    y="gross_profit",
-    color="county",
-    title="Income vs. Gross Profit by Store",
-    x_title="County Level Gas Sales",
-    y_title="County Level Gross Profit",
-    trendline="ols"        # optional: adds a regression line
-)
+with tab1:
+    st.title("Gas Sales by County")
+    url = "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
+    gas_sales_map(df_county, url)
 
-st.subheader("Gas Sales vs. Gross Profit by County")
-county_population_plot(
-    df_county,
-    x="gas_sales",
-    y="gross_profit",
-    title="Income vs. Gross Profit by Store",
-    x_title="County Level Gas Sales",
-    y_title="County Level Gross Profit",
-    trendline="ols"        # optional: adds a regression line
-)
+    # This function is generic
+    st.title("")
+    st.subheader("Gas Sales vs. Gross Profit by County")
+    county_population_plot(
+        df_county,
+        x="gas_sales",
+        y="gross_profit",
+        color="county",
+        title="Income vs. Gross Profit by Store",
+        x_title="County Level Gas Sales",
+        y_title="County Level Gross Profit",
+        trendline="ols"        # optional: adds a regression line
+    )
 
-st.title("Excessive Drinking (%) by County")
-drinking_map(df_grouped, url)
+    st.subheader("Gas Sales vs. Gross Profit by County")
+    county_population_plot(
+        df_county,
+        x="gas_sales",
+        y="gross_profit",
+        title="Income vs. Gross Profit by Store",
+        x_title="County Level Gas Sales",
+        y_title="County Level Gross Profit",
+        trendline="ols"        # optional: adds a regression line
+    )
 
-st.subheader("Excessive Drinking (%) vs. Gross Profit by County")
-county_population_plot(
-    df_grouped,
-    x="excessive_drinking",
-    y="gross_profit",
-    title="Income vs. Gross Profit by Store",
-    x_title="County Level Excessive Drinking",
-    y_title="County Level Gross Profit",
-    trendline="ols"        # optional: adds a regression line
-)
+with tab2:
+    st.title("Excessive Drinking (%) by County")
+    drinking_map(df_grouped, url)
+
+    st.title("")
+    st.subheader("Excessive Drinking (%) vs. Gross Profit by County")
+    county_population_plot(
+        df_grouped,
+        x="excessive_drinking",
+        y="gross_profit",
+        title="Income vs. Gross Profit by Store",
+        x_title="County Level Excessive Drinking",
+        y_title="County Level Gross Profit",
+        trendline="ols"        # optional: adds a regression line
+    )

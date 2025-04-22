@@ -78,6 +78,6 @@ with col1:
     st.json(profit)
     
 with col2: 
-    st.markdown('**Beta Hat of 4,534 features**')
+    st.markdown('**Importance of 4,534 features**')
     df = pd.read_csv('table/feat_importance.csv')
     df
